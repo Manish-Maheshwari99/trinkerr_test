@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -16,9 +16,9 @@ export class StockService {
   }
 
   getStock(token: string): Observable<any> {
-    let header = new Headers();
-    header.set('user-access-token', token)
-    return this.http.get(`${this.BASE_URL}/api/data?search_string=`, {'headers':header})
+    let header = new HttpHeaders();
+    header = header.set('user-access-token', token)
+    return this.http.get(`${this.BASE_URL}/api/data?search_string=`, {headers: header})
   }
 
 }
