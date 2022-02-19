@@ -16,9 +16,9 @@ export class StockService {
   }
 
   getStock(token: string): Observable<any> {
-    let header = new HttpHeaders();
-    header = header.set('user-access-token', token)
-    return this.http.get(`${this.BASE_URL}/api/data?search_string=`, {headers: header})
+    let headers = new HttpHeaders();
+    headers = headers.set('user-access-token', token)
+    return this.http.get(`${this.BASE_URL}/api/data?search_string=`, {headers})
   }
 
 }
